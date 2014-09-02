@@ -1,0 +1,29 @@
+{
+    "require": {
+        "illuminate/database": "4.1.*@dev",
+        "robmorgan/phinx": "dev-master",
+        "slim/slim": "dev-master",
+        "slim/views": "dev-master",
+        "slim/logger": "dev-master",
+        "twig/twig": "1.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "phpunit/php-code-coverage": ">=1.2.10,<1.3.0",
+        "sami/sami": "1.0.*@dev",
+        "pdepend/pdepend" : "1.1.0",
+        "phpmd/phpmd" : "1.4.*",
+        "sebastian/phpcpd": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "app/helper",
+            "app/controller",
+            "app/exception",
+            "app/middleware",
+            "app/model",
+            "app/repository"
+        ]
+    },
+    "minimum-stability": "dev"
+}
