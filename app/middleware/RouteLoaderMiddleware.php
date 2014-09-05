@@ -15,23 +15,30 @@ class RouteLoaderMiddleware extends \Slim\Middleware {
 
         $app->hook('slim.before.router', function() use($app) {
             $routesPath = $app->paths['app'] . '/routes';
-
             $pattern = '@^/(\w+?).+$@';
-            preg_match($pattern, $app->request()->getPathInfo(), $matches);
+            $reqPath = $app->request()->getPathInfo();
+            preg_match($pattern, $reqPath, $matches);
 
+            // If it is the base route load the base.php file
+            if($reqPath === '/' && file_exists($routesPath . 'base.php')) {
+                require_once($routesPath . 'base.php');
+                return;
+            }
+
+            // If theres a route file that matches the section, load that
             if(!empty($matches) && file_exists($routesPath . $matches[0] . '.php')) {
                 // Load only the matching route file
                 require_once($routesPath . $matches[0] . '.php');
+                return;
             }
-            else {
-                // Load all route files
-                $files = array_diff(scandir($routesPath . '/'), array('..', '.'));
-                foreach($files as $file) {
-                    // We only want php files
-                    $info = pathinfo($routesPath . '/' . $file);
-                    if($info['extension'] === 'php') {
-                        require_once($routesPath . '/' . $file);
-                    }
+
+            // Load all route files
+            $files = array_diff(scandir($routesPath . '/'), array('..', '.'));
+            foreach($files as $file) {
+                // We only want php files
+                $info = pathinfo($routesPath . '/' . $file);
+                if($info['extension'] === 'php') {
+                    require_once($routesPath . '/' . $file);
                 }
             }
         });
