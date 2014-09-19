@@ -138,6 +138,7 @@ $app->error(function(\Exception $e) use($app) {
 | Set Some Middleware
 |--------------------------------------------------------------------------
 */
+$app->add(new \Slim\Middleware\ContentTypes());
 $app->add(new Middleware\RouteLoaderMiddleware());
 $app->add(new Middleware\AuthMiddleware(
     $appConf['auth_section'],
