@@ -41,6 +41,7 @@ class AuthMiddleware extends \Slim\Middleware {
             if($contains($app->request()->getPathInfo(), $routes)) {
                 if($env !== 'production') {
                     if(!isset($_COOKIE[$cookie])) {
+                        session_start();
                         $_SESSION['prev_url'] = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                         header("Location: $redirect");
                         die();
