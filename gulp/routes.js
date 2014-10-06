@@ -1,7 +1,7 @@
 var root = './assets/';
 
 module.exports = {
-  jsDevPath:   [root + 'js/*.js', root + 'js/lib/*.js', root + 'js/modules/*.js'],
+  jsDevPath:   [root + 'js/lib/*.js', root + 'js/modules/*.js', root + 'js/*.js'],
   jsWatchPath: root + 'js/**/*.js',
   jsDistPath:  './public/js/',
 
