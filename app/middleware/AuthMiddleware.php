@@ -39,7 +39,7 @@ class AuthMiddleware extends \Slim\Middleware {
 
         $app->hook('slim.before.router', function() use($app, $env, $contains, $routes, $cookie, $redirect) {
             if($contains($app->request()->getPathInfo(), $routes)) {
-                if($env !== 'production') {
+                if($env === 'production') {
                     if(!isset($_COOKIE[$cookie])) {
                         session_start();
                         $_SESSION['prev_url'] = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];

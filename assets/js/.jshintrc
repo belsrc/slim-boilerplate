@@ -1,16 +1,24 @@
 {
     "maxerr"        : 100,
     "browser"       : true,
+
+    // Libraries
     "jquery"        : false,
     "prototypejs"   : false,
     "mootools"      : false,
     "dojo"          : false,
+
+    // Development
     "debug"         : false,
     "devel"         : true,
     "maxcomplexity" : 10,
+
+    // ES5
     "es5"           : true,
     "strict"        : false,
     "globalstrict"  : false,
+
+    // Coding Rules
     "asi"           : false,
     "laxbreak"      : false,
     "bitwise"       : false,
@@ -32,6 +40,8 @@
     "supernew"      : false,
     "undef"         : true,
     "unused"        : true,
+
+    // Personal
     "camelcase"     : true,
     "newcap"        : true,
     "indent"        : 4,

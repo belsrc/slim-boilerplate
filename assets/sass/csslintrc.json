@@ -1,0 +1,14 @@
+{
+    "box-sizing"             : false,
+    "duplicate-properties"   : false,
+    "font-sizes"             : false,
+    "ids"                    : false,
+    "important"              : false,
+    "outline-none"           : false,
+    "regex-selectors"        : false,
+    "star-property-hack"     : false,
+    "text-indent"            : false,
+    "unique-headings"        : false,
+    "universal-selector"     : false,
+    "unqualified-attributes" : false
+}

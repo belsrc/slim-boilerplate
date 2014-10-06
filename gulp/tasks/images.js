@@ -1,22 +1,31 @@
-// var gulp     = require('gulp'),
-//     imagemin = require('gulp-imagemin'),
-//     svgmin   = require('gulp-svgmin'),
-//     changed  = require('gulp-changed');
+var path = require('../routes');
 
-// var path  = './app/assets/images';
-// var imgSrc = [path + '/*.png', path + '/*.jpg', path + '/**/*.png', path + '/**/*.jpg'];
-// var svgSrc = [path + '/*.svg', path + '/**/*.svg'];
+var gulp     = require('gulp'),
+    imagemin = require('gulp-imagemin'),
+    svgmin   = require('gulp-svgmin'),
+    changed  = require('gulp-changed');
 
-// gulp.task('images', function() {
-//   gulp.src(imgSrc)
-//     .pipe(changed('./public/img/'))
-//     .pipe(imagemin())
-//     .pipe(gulp.dest('./public/img/'));
-// });
 
-// gulp.task('svg', function() {
-//   gulp.src(svgSrc)
-//     .pipe(changed('./public/img/'))
-//     .pipe(svgmin())
-//     .pipe(gulp.dest('./public/img/'));
-// });
+/*
+ |--------------------------------------------------------------------------
+ | Image Build
+ |--------------------------------------------------------------------------
+ */
+gulp.task('images', function() {
+  gulp.src(path.imageDevPath)
+    .pipe(changed(path.imageDistPath))
+    .pipe(imagemin())
+    .pipe(gulp.dest(path.imageDistPath));
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | Vector Build
+ |--------------------------------------------------------------------------
+ */
+gulp.task('svg', function() {
+  gulp.src(path.svgDevPath)
+    .pipe(changed(path.svgDistPath))
+    .pipe(svgmin())
+    .pipe(gulp.dest(path.svgDistPath));
+});

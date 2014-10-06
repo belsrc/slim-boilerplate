@@ -1,11 +1,19 @@
 var root = './assets/';
 
 module.exports = {
-  jsDevPath: [root + 'assets/js/lib/*.js', root + 'assets/js/modules/*.js'],
+  jsDevPath:   [root + 'js/*.js', root + 'js/lib/*.js', root + 'js/modules/*.js'],
   jsWatchPath: root + 'js/**/*.js',
-  jsDistPath: './public/js/',
+  jsDistPath:  './public/js/',
 
-  sassDevPath: root + 'sass/app.scss',
-  sassWatchPath: [root + 'sass/app.scss', root + 'sass/**/*.scss'],
-  sassDistPath: './public/css',
+  sassDevPath:   root + 'sass/app.scss',
+  sassWatchPath: root + 'sass/**/*.scss',
+  sassDistPath:  './public/css',
+
+  imageDevPath:   root + 'img/**/*.{jpg,png}',
+  imageWatchPath: root + 'img/**/*.{jpg,png}',
+  imageDistPath:  './public/img',
+
+  svgDevPath:   root + 'img/**/*.svg',
+  svgWatchPath: root + 'img/**/*.svg',
+  svgDistPath:  './public/img',
 };

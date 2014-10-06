@@ -1,3 +1,5 @@
+var path = require('../routes');
+
 var gulp    = require('gulp'),
     sass    = require('gulp-sass'),
     prefix  = require('gulp-autoprefixer'),
@@ -5,25 +7,32 @@ var gulp    = require('gulp'),
     csslint = require('gulp-csslint'),
     cssmin  = require('gulp-minify-css');
 
-var path = './assets/sass';
-var scss = [path + '/app.scss'];
 
+/*
+ |--------------------------------------------------------------------------
+ | Development Build
+ |--------------------------------------------------------------------------
+ */
 gulp.task('styles.dev', function() {
-  gulp.src(scss)
+  gulp.src(path.sassDevPath)
     .pipe(sass({
       errLogToConsole: true,
-      outputStyle: 'compressed'
+      outputStyle: 'expanded'
     }))
     .pipe(prefix("last 4 version", "ie 8"))
-    // .pipe(csslint('./app/assets/styles/csslintrc.json'))
-    // .pipe(csslint.reporter())
-    // .pipe(cssmin())
+    .pipe(csslint('./assets/sass/csslintrc.json'))
+    .pipe(csslint.reporter())
     .pipe(rename('app.min.css'))
-    .pipe(gulp.dest('./public/css/'));
+    .pipe(gulp.dest(path.sassDistPath));
 });
 
+/*
+ |--------------------------------------------------------------------------
+ | Production Build
+ |--------------------------------------------------------------------------
+ */
 gulp.task('styles.build', function() {
-  gulp.src(scss)
+  gulp.src(path.sassDevPath)
     .pipe(sass({
       errLogToConsole: false,
       outputStyle: 'compressed'
@@ -31,5 +40,5 @@ gulp.task('styles.build', function() {
     .pipe(prefix("last 4 version", "ie 8"))
     .pipe(cssmin())
     .pipe(rename('app.min.css'))
-    .pipe(gulp.dest('./public/css/'));
+    .pipe(gulp.dest(path.sassDistPath));
 });
