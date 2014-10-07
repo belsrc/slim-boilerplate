@@ -32,4 +32,19 @@ class Helpers {
         }
         echo '</pre>';
     }
+
+    /**
+     * Returns a JSON response.
+     * @param  Slim\Slim $app    The current Slim app.
+     * @param  array     $data   An array of data to return as JSON.
+     * @param  int       $status The return HTTP status code.
+     * @return void
+     */
+    public function jsonResponse(\Slim\Slim $app, array $data, $status=200) {;
+        $status = intval($status);
+        $app->response->status($status);
+        $app->response->headers->set('Cache-Control', 'no-cache, must-revalidate');
+        $app->response->headers->set('Content-Type', 'application/json');
+        $app->response->body(json_encode($data));
+    }
 }

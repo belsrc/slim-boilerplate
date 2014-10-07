@@ -106,7 +106,9 @@ php phinx migrate -e [development|production] -c ../../phinx.yml
 
 
 ## Misc.
-Comes with a Helper class simply containing ```contains(string $base, string|array $value)``` and ```prettyPrint(mixed $data)```.
+Comes with a Helper class simply containing ```contains(string $base, string|array $value)```,  ```prettyPrint(mixed $data)```,
+and ```jsonResponse(\Slim\Slim $app, array $data, $status=200)```. I could have extended the view but then it's an all responses or
+some per view injecting which just feels to clunky.
 
 Comes with a ```BaseModel``` class that extends Eloquent\Model and simply exposes the ```$table``` property.
 
