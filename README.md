@@ -4,6 +4,7 @@ I was using Slim a lot at work so I decided to make a little boilerplate app to 
 
 ## Install
 To install simply clone the repository ```git clone https://github.com/belsrc/slim-boilerplate.git```
+
 And then run ```composer install``` and ```npm install``` to install dependencies.
 
 
@@ -52,6 +53,7 @@ not find any file that matches, then all the route files are loaded.
 
 ## Views
 Depends on Twig. Documentation can be found [here](http://twig.sensiolabs.org/documentation).
+
 Contains _very_ bare bones ```base.html``` and ```home.html``` views.
 
 
@@ -69,7 +71,7 @@ __Windows__
 cd vendor/bin
 ```
 ```PowerShell
-phinx.bat create -c ../../phinx.yml CreateTable
+phinx.bat create -c ../../phinx.yml [MigrationName]
 ```
 
 __Linux__
@@ -77,7 +79,7 @@ __Linux__
 cd vendor/bin
 ```
 ```Shell
-php phinx create -c ../../phinx.yml CreateTable
+php phinx create -c ../../phinx.yml [MigrationName]
 ```
 
 #### To Run the Migrations
@@ -87,7 +89,7 @@ __Windows__
 cd vendor/bin
 ```
 ```PowerShell
-phinx.bat migrate -e development -c ../../phinx.yml
+phinx.bat migrate -e [development|production] -c ../../phinx.yml
 ```
 
 __Linux__
@@ -95,7 +97,7 @@ __Linux__
 cd vendor/bin
 ```
 ```Shell
-php phinx migrate -e development -c ../../phinx.yml
+php phinx migrate -e [development|production] -c ../../phinx.yml
 ```
 
 
