@@ -12,3 +12,5 @@ All the config files are located in the app > config folder and broken up into t
  * __log__ - Allows you to set some configurations associated with Slim's DateTimeFileWriter.
 
  * __view__ - Allows you to set some configurations associated with Slim's View.
+
+ * __local__ - Local project config. Each of the values added to this config are injected into the app object. ```$app->$key = $value```

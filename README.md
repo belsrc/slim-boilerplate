@@ -23,6 +23,8 @@ All the config files are located in the app > config folder and broken up into t
 
  * __view__ - Allows you to set some configurations associated with Slim's View.
 
+ * __local__ - Local project config. Each of the values added to this config are injected into the app object. ```$app->$key = $value```
+
 
 ## Routing
 Comes with a conditional route loader middleware. To take advantage of the conditional route loader your routes should be broken up into modules.

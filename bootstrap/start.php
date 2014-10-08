@@ -20,12 +20,13 @@ ini_set('display_errors', 'On');
 | Get the Various Config Files
 |--------------------------------------------------------------------------
 */
-$paths    = require __DIR__.'/path.php';
-$dbConf   = require $paths['app'].'/config/database.php';
-$envConf  = require $paths['app'].'/config/environment.php';
-$logConf  = require $paths['app'].'/config/log.php';
-$viewConf = require $paths['app'].'/config/view.php';
-$appConf  = require $paths['app'].'/config/app.php';
+$paths     = require __DIR__.'/path.php';
+$dbConf    = require $paths['app'].'/config/database.php';
+$envConf   = require $paths['app'].'/config/environment.php';
+$logConf   = require $paths['app'].'/config/log.php';
+$viewConf  = require $paths['app'].'/config/view.php';
+$appConf   = require $paths['app'].'/config/app.php';
+$localConf = require $paths['app'].'/config/local.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,11 @@ $app = new Slim(array(
 $app->paths = $paths;
 $app->devError = $appConf['debug_error_string'];
 $app->liveError = $appConf['live_error_string'];
+
+// Add all the local configs to the application object.
+foreach($localConf as $key => $val) {
+    $app->$key = $val;
+}
 
 /*
 |--------------------------------------------------------------------------
