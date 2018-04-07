@@ -1,3 +1,5 @@
+[![No Maintenance Intended](https://img.shields.io/badge/No%20Maintenance%20Intended-x-red.svg?style=flat-square&longCache=true)](http://unmaintained.tech/)
+
 # Simple Slim Application Boilerplate
 I was using Slim a lot at work so I decided to make a little boilerplate app to speed up the process.
 
